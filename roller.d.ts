@@ -1,0 +1,53 @@
+declare type Advantage = 'advantage' | 'normal' | 'disadvantage';
+interface DamageInfo {
+    die_count: number;
+    die_size: number;
+    modifier: number;
+}
+declare class Roller {
+    constructor();
+    readonly swarm_size_element: HTMLInputElement;
+    readonly swarm_size: number;
+    readonly attack_dc_element: HTMLInputElement;
+    readonly attack_dc: number;
+    readonly attack_modifier_element: HTMLInputElement;
+    readonly attack_modifier: number;
+    readonly attack_advantage_element: HTMLSelectElement;
+    readonly attack_advantage: Advantage;
+    readonly attack_damage_element: HTMLInputElement;
+    readonly attack_damage: DamageInfo;
+    readonly save_required_element: HTMLInputElement;
+    readonly save_required: boolean;
+    readonly save_container_element: HTMLDivElement;
+    readonly save_dc_element: HTMLInputElement;
+    readonly save_dc: number;
+    readonly save_modifier_element: HTMLInputElement;
+    readonly save_modifier: number;
+    readonly save_advantage_element: HTMLSelectElement;
+    readonly save_advantage: Advantage;
+    readonly submit_element: HTMLInputElement;
+    readonly results_element: HTMLDivElement;
+    readonly results_swarm_size_element: HTMLTableDataCellElement;
+    readonly results_num_hits_element: HTMLTableDataCellElement;
+    readonly results_num_crits_element: HTMLTableDataCellElement;
+    readonly results_num_non_crits_element: HTMLTableDataCellElement;
+    readonly results_damage_element: HTMLTableDataCellElement;
+    readonly results_save_details_element: HTMLTableRowElement;
+    readonly results_num_save_failures_element: HTMLTableDataCellElement;
+    save_required_changed: () => void;
+    roll: () => void;
+}
+declare function random_int(min_inclusive: number, max_inclusive: number): number;
+declare function roll_die(sides: number, advantage: Advantage): number;
+declare function roll_dice(count: number, sides: number, advantage: Advantage): Array<number>;
+declare function count_success(rolls: Array<number>, dc: number, modifier: number): number;
+declare function parse_damage(damage: string): DamageInfo;
+declare function get_element(id: string): HTMLElement;
+declare function get_div_element(id: string): HTMLDivElement;
+declare function get_input_element(id: string): HTMLInputElement;
+declare function get_select_element(id: string): HTMLSelectElement;
+declare function get_button_element(id: string): HTMLButtonElement;
+declare function get_table_data_element(id: string): HTMLTableCellElement;
+declare function get_table_row_element(id: string): HTMLTableRowElement;
+declare function get_input_element_value(element: HTMLInputElement): string;
+declare function get_select_element_value(element: HTMLSelectElement): string;

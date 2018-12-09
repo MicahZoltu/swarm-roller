@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "es2018",
+		"module": "es2015",
+		"sourceMap": true,
+		"strict": true,
+		"noEmitOnError": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"strictNullChecks": true,
+		"declaration": true,
+		"lib": [
+			"es2018",
+			"dom"
+		]
+	}
+}

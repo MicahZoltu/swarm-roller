@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>5e Swarm Roller</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<script src="roller.js"></script>
+	<div class='container' style='max-width: 500px'>
+		<div class='row'>
+			<div class='col-6 text-right'>
+				<label for='swarm_size'>Swarm Size</label>
+			</div>
+			<div class='col-6 text-left'>
+				<input class='form-control' id='swarm_size' type='number' required min='1' placeholder='' value='2' step='1'>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-6 text-right'>
+				<span>Attack Advantage</span>
+			</div>
+			<div class='col-6 text-left'>
+				<select class='custom-select' id='attack_advantage'>
+					<option value='advantage'>Advantage</option>
+					<option value='normal' selected>Normal</option>
+					<option value='disadvantage'>Disadvantage</option>
+				</select>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-6 text-right'>
+				<span>Attack Modifier</span>
+			</div>
+			<div class='col-6 text-left'>
+				<input class='form-control' id='attack_modifier' type='number' required min='0' max='20' placeholder='' value='0'
+				 step='1'>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-6 text-right'>
+				<span>Armor Class</span>
+			</div>
+			<div class='col-6 text-left'>
+				<input class='form-control' id='attack_dc' type='number' required min='0' max='40' placeholder='' value='10' step='1'>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-6 text-right'>
+				<span>Damage</span>
+			</div>
+			<div class='col-6 text-left'>
+				<input class='form-control' id='attack_damage' type='string' required value='1d6+1'>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-6 text-right'>
+				<span>Save Required</span>
+			</div>
+			<div class='col-6 text-left'>
+				<input class='form-control' id='save_required' type='checkbox'>
+			</div>
+		</div>
+		<div id='save_container'>
+			<div class='row'>
+				<div class='col-6 text-right'>
+					<span>Save Advantage</span>
+				</div>
+				<div class='col-6 text-left'>
+					<select class='custom-select' id='save_advantage'>
+						<option value='advantage'>Advantage</option>
+						<option value='normal' selected>Normal</option>
+						<option value='disadvantage'>Disadvantage</option>
+					</select>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-6 text-right'>
+					<span>Save Modifier</span>
+				</div>
+				<div class='col-6 text-left'>
+					<input class='form-control' id='save_modifier' type='number' min='0' max='20' placeholder='' value='0' step='1'>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-6 text-right'>
+					<span>Save DC</span>
+				</div>
+				<div class='col-6 text-left'>
+					<input class='form-control' id='save_dc' type='number' min='0' max='40' placeholder='' value='10' step='1'>
+				</div>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-12 text-center'>
+				<input class='btn btn-primary btn-lg btn-block' id='submit' type='button' value='Show Me The Money!'>
+			</div>
+		</div>
+		<div class='row' id='results' hidden>
+			<div class='col-12'>
+				<table class='table table-striped table-hover table-sm'>
+					<tbody>
+						<tr>
+							<th class='text-right' scope='row'style='width: 50%'>Attacks</th>
+							<td id='results_swarm_size' style='width: 50%;'></td>
+						</tr>
+						<tr>
+							<th class='text-right' scope='row'style='width: 50%'>Hits</th>
+							<td id='results_num_hits' style='width: 50%;'></td>
+						</tr>
+						<tr>
+							<th class='text-right' scope='row'style='width: 50%'>Crits</th>
+							<td id='results_num_crits' style='width: 50%;'></td>
+						</tr>
+						<tr>
+							<th class='text-right' scope='row'style='width: 50%'>Non-Crits</th>
+							<td id='results_num_non_crits' style='width: 50%;'></td>
+						</tr>
+						<tr>
+							<th class='text-right' scope='row'style='width: 50%'>Damage</th>
+							<td id='results_damage' style='width: 50%;'></td>
+						</tr>
+						<tr id='results_save_details' hidden>
+							<th class='text-right' scope='row'style='width: 50%'>Save Failures</th>
+							<td id='results_num_save_failures' style='width: 50%;'></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
